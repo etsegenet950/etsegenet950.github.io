@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ፋኖስ ለሁሉ የበጎ አድራጎት ድርጅት</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="tab-navigation">
+        <img src="images/logo.jpg" alt="Logo" style="height:150px; vertical-align:middle; margin-right:15px;">
+        <button class="tab-button active" data-tab="home">Home</button>
+        <button class="tab-button" data-tab="about">About Us</button>
+        <button class="tab-button" data-tab="services">Services</button>
+        <button class="tab-button" data-tab="news">News</button>
+        <button class="tab-button" data-tab="contact">Contact</button>
+        <button class="tab-button" data-tab="gallery">Gallery</button>
+        <button class="tab-button" data-tab="donate">Donate</button>
+    </nav>
+    
+
+    
+    <main class="tab-container">
+        <!-- Home Tab Content -->
+        <div id="home" class="tab-content active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Fanos Lehulu Charity Organization</h1>
+                    <p class="hero-tagline">Working in unity is a core social value of humanity.</p>
+                    <h2 class="hero-motto">በአንድነት መሥራት የሰው ልጅ ማህበራዊ እሴት ነው!</h2>
+                </div>
+                
+                <div class="quick-nav-section">
+                    <h2><span class="help-heading">How We Help</span></h2>
+                    <div class="quick-nav-grid">
+                        <div class="quick-nav-card" onclick="showTab('services')">
+                            <h3>Our Services</h3>
+                            <p>Education, Health, Environment & Special Care</p>
+                        </div>
+                        <div class="quick-nav-card" onclick="showTab('about')">
+                            <h3>About Us</h3>
+                            <p>Our Mission, Vision & Values</p>
+                        </div>
+                        <div class="quick-nav-card" onclick="showTab('donate')">
+                            <h3>Get Involved</h3>
+                            <p>Donate or Volunteer with Us</p>
+                        </div>
+                        <div class="quick-nav-card" onclick="showTab('contact')">
+                            <h3>Contact Us</h3>
+                            <p>Reach Out for Support or Information</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="latest-updates">
+                    <h2>Latest Updates</h2>
+                    <div class="update-preview">
+                        <div class="update-item">
+                            <strong>Community Outreach:</strong> Expanded educational and health support services in rural areas.
+                        </div>
+                        <div class="update-item">
+                            <strong>Environmental Initiative:</strong> Continued tree planting in partnership with local schools.
+                        </div>
+                        <div class="update-item">
+                            <strong>Educational Expansion:</strong> Extended support to additional schools with learning materials.
+                        </div>
+                    </div>
+                    <button class="view-more-btn" onclick="showTab('news')">View All News</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Tab Content -->
+        <div id="about" class="tab-content">
+            <h2>About Us</h2>
+            <div class="content-section">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Who We Are</h3>
+                        <p>We are Fanos Lehulu Charity Organization, a dedicated non-profit committed to serving our community with compassion, integrity, and excellence. Our organization focuses on education, environmental protection, community service quality, and special care for those who need it most. Established in 2013 E.C. as “Fanos Lehulu Charity Organization,” in accordance with Proclamation No. 1113/2011 E.C.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Vision</h3>
+                        <p>Improving lives and opportunity for vulnerable communities, with special focus on women, children, and elderly, through education, environmental protection, economic advancement, psychological healing, and comprehensive care.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>We strengthen our community’s economic capacity by organizing savings groups, facilitating diverse income-generating projects, mobilizing resources and sponsorships, and coordinating with governmental and non-governmental charitable organizations to implement joint initiatives.</p>
+                        <p>1. Help students who need support to obtain adequate educational resources and acquire better knowledge<br><br>
+                        2. Protect environmental and natural resources, prevent damage to our community, and make the agricultural sector productive by providing professional and financial support<br><br>
+                        3. Provide comprehensive support for health service quality and accessibility in the areas where the organization operates<br><br>
+                        4. Identify elderly, women, and children who need special support and ensure they receive necessary care and assistance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Services Tab Content -->
+        <div id="services" class="tab-content">
+            <h2>Our Services</h2>
+            <div class="content-section">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Educational Support</h3>
+                        <p>We provide educational resources, scholarships, and learning materials to students who need support to achieve their academic goals.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Environmental Protection</h3>
+                        <p>Environmental conservation programs, tree planting initiatives, and community awareness campaigns to protect our natural resources.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Health Services</h3>
+                        <p>Comprehensive health service support, medical assistance, and healthcare accessibility programs for vulnerable communities.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Special Care Programs</h3>
+                        <p>Dedicated support and care services for elderly, women, and children who require special attention and assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- News Tab Content -->
+        <div id="news" class="tab-content">
+            <h2>Latest News</h2>
+            <div class="content-section">
+                <p>No news available at the moment. Please check back soon.</p>
+            </div>
+        </div>
+        
+        <!-- Contact Tab Content -->
+        <div id="contact" class="tab-content">
+            <h2>Contact Us</h2>
+            <div class="content-section">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <strong>Address:</strong>
+                            <p>Subcity: Kirkos<br>Woreda: 18<br>House No: Addis</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong>
+                            <p>0939203402</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <p>fanoslehulu@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Telegram:</strong>
+                            <p><a href="https://t.me/fanoslehulu" target="_blank" rel="noopener noreferrer">t.me/fanoslehulu</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Facebook:</strong>
+                            <p><a href="https://www.facebook.com/Fanoscharity2020" target="_blank" rel="noopener noreferrer">facebook.com/Fanoscharity2020</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Business Hours:</strong>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gallery Tab Content -->
+        <div id="gallery" class="tab-content">
+            <h2>Gallery</h2>
+            <div class="content-section">
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-25-57.jpg" alt="Gallery photo 1"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-03.jpg" alt="Gallery photo 2"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-06.jpg" alt="Gallery photo 3"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-16.jpg" alt="Gallery photo 4"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-17.jpg" alt="Gallery photo 5"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-25.jpg" alt="Gallery photo 6"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-36.jpg" alt="Gallery photo 7"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-42.jpg" alt="Gallery photo 8"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-43.jpg" alt="Gallery photo 9"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-48.jpg" alt="Gallery photo 10"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-49.jpg" alt="Gallery photo 11"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-50.jpg" alt="Gallery photo 12"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-51.jpg" alt="Gallery photo 13"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-52.jpg" alt="Gallery photo 14"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-53.jpg" alt="Gallery photo 15"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-55.jpg" alt="Gallery photo 17"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-57.jpg" alt="Gallery photo 18"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-58 (2).jpg" alt="Gallery photo 19"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-58.jpg" alt="Gallery photo 20"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-00 (2).jpg" alt="Gallery photo 21"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-00.jpg" alt="Gallery photo 22"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-02.jpg" alt="Gallery photo 23"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-08.jpg" alt="Gallery photo 24"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-12.jpg" alt="Gallery photo 25"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-13.jpg" alt="Gallery photo 26"></div>
+                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-14.jpg" alt="Gallery photo 27"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donate Tab Content -->
+        <div id="donate" class="tab-content">
+            <h2>Support Our Cause</h2>
+            <div class="content-section">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Make a Donation</h3>
+                        <p>Your generous donations help us continue our mission of improving lives in vulnerable communities. Every contribution makes a difference in education, health services, environmental protection, and special care programs.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Bank Accounts</h3>
+                        <p><strong>Account Name:</strong> FANOS LEHULU CHARITY ORGANIZATION</p>
+                        <p><strong>Commercial Bank of Ethiopia (CBE):</strong> <strong>1000401924233</strong> <em>or</em> Short Code: <strong>0121</strong></p>
+                        <p><strong>Amhara Bank:</strong> 9900002135683</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/tabs.js"></script>
+</body>
+</html>
+
+<!-- // This file contains JavaScript code specific to the contact page.
+// It includes functions for handling form submissions and user interactions on the contact section.
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            handleFormSubmit();
+        });
+    }
+
+    function handleFormSubmit() {
+        const formData = new FormData(contactForm);
+        const data = {};
+
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Basic validation
+        if (!data.name || !data.email || !data.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Here you can add code to send the data to a server or handle it as needed
+        console.log('Form submitted:', data);
+        alert('Thank you for contacting us, ' + data.name + '! We will get back to you soon.');
+    }
+}); -->
