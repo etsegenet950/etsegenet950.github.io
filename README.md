@@ -1,1 +1,1 @@
-etsegenet950.github.io
+https://github.com/etsegenet950/etsegenet950.github.io
