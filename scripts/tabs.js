@@ -35,10 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listeners to all tab buttons
     Array.prototype.forEach.call(tabButtons, function(button) {
-        button.addEventListener('click', function() {
+        function activateTab(e) {
+            // Prevent duplicate firing on touch + click
+            if (e) { e.preventDefault ? e.preventDefault() : null; }
             var targetTab = this.getAttribute('data-tab');
             showTab(targetTab);
-        });
+        }
+        button.addEventListener('click', activateTab);
+        button.addEventListener('touchstart', activateTab);
     });
 
     // Initialize with the first tab active (About Us)
@@ -46,12 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle How We Help grid when its title is clicked
     if (howWeHelpTitle && howWeHelpSection) {
-        howWeHelpTitle.addEventListener('click', function() {
+        function toggleHelp(e){ if (e) { e.preventDefault ? e.preventDefault() : null; }
             if (howWeHelpSection.classList.contains('collapsed')) {
                 howWeHelpSection.classList.remove('collapsed');
             } else {
                 howWeHelpSection.classList.add('collapsed');
             }
-        });
+        }
+        howWeHelpTitle.addEventListener('click', toggleHelp);
+        howWeHelpTitle.addEventListener('touchstart', toggleHelp);
     }
 });
