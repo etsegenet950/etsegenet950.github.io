@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
+    const howWeHelpSection = document.querySelector('.quick-nav-section');
+    const howWeHelpTitle = howWeHelpSection?.querySelector('h2');
 
     // Function to show a specific tab
     function showTab(targetTab) {
@@ -38,4 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize with the first tab active (About Us)
     showTab('about');
+
+    // Toggle How We Help grid when its title is clicked
+    if (howWeHelpTitle && howWeHelpSection) {
+        howWeHelpTitle.addEventListener('click', () => {
+            howWeHelpSection.classList.toggle('collapsed');
+        });
+    }
 });
