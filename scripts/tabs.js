@@ -1,39 +1,42 @@
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const howWeHelpSection = document.querySelector('.quick-nav-section');
-    const howWeHelpTitle = howWeHelpSection?.querySelector('h2');
+    var tabButtons = document.querySelectorAll('.tab-button');
+    var tabContents = document.querySelectorAll('.tab-content');
+    var howWeHelpSection = document.querySelector('.quick-nav-section');
+    var howWeHelpTitle = null;
+    if (howWeHelpSection) {
+        howWeHelpTitle = howWeHelpSection.querySelector('h2');
+    }
 
     // Function to show a specific tab
     function showTab(targetTab) {
         // Hide all tab contents
-        tabContents.forEach(content => {
+        Array.prototype.forEach.call(tabContents, function(content) {
             content.classList.remove('active');
         });
 
         // Remove active class from all buttons
-        tabButtons.forEach(button => {
+        Array.prototype.forEach.call(tabButtons, function(button) {
             button.classList.remove('active');
         });
 
         // Show the target tab content
-        const targetContent = document.getElementById(targetTab);
+        var targetContent = document.getElementById(targetTab);
         if (targetContent) {
             targetContent.classList.add('active');
         }
 
         // Add active class to the clicked button
-        const targetButton = document.querySelector(`[data-tab="${targetTab}"]`);
+        var targetButton = document.querySelector('[data-tab="' + targetTab + '"]');
         if (targetButton) {
             targetButton.classList.add('active');
         }
     }
 
     // Add click event listeners to all tab buttons
-    tabButtons.forEach(button => {
+    Array.prototype.forEach.call(tabButtons, function(button) {
         button.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
+            var targetTab = this.getAttribute('data-tab');
             showTab(targetTab);
         });
     });
@@ -43,8 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle How We Help grid when its title is clicked
     if (howWeHelpTitle && howWeHelpSection) {
-        howWeHelpTitle.addEventListener('click', () => {
-            howWeHelpSection.classList.toggle('collapsed');
+        howWeHelpTitle.addEventListener('click', function() {
+            if (howWeHelpSection.classList.contains('collapsed')) {
+                howWeHelpSection.classList.remove('collapsed');
+            } else {
+                howWeHelpSection.classList.add('collapsed');
+            }
         });
     }
 });
