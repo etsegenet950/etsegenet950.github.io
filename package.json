@@ -4,7 +4,7 @@
   "description": "A simple website with home, about, contact, and like pages.",
   "main": "src/index.html",
   "scripts": {
-    "start": "live-server src",
+    "start": "live-server .",
     "build": "echo 'Build step not defined'"
   },
   "keywords": [

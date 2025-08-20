@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Here you can add code to send the data to a server or handle it as needed
         console.log('Form submitted:', data);
-        alert('Thank you for contacting us, ' + data.name + '!');
-        contactForm.reset();
+        const ok = confirm('Thank you for contacting us, ' + data.name + '!\n\nPress OK to close, or Cancel to keep your message.');
+        if (ok) {
+            contactForm.reset();
+        }
     }
 });

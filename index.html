@@ -236,12 +236,49 @@
                         <p><strong>Commercial Bank of Ethiopia (CBE):</strong> <strong>1000401924233</strong> <em>or</em> Short Code: <strong>0121</strong></p>
                         <p><strong>Amhara Bank:</strong> 9900002135683</p>
                     </div>
+                    <form id="donate-form" class="contact-form" enctype="multipart/form-data">
+                        <h3>Donate and Attach Bank Statement</h3>
+                        <div class="form-group">
+                            <label for="donor-name">Full Name *</label>
+                            <input type="text" id="donor-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donor-email">Email *</label>
+                            <input type="email" id="donor-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donation-amount">Amount (ETB) *</label>
+                            <input type="number" id="donation-amount" name="amount" min="1" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donation-method">Donation Method *</label>
+                            <select id="donation-method" name="method" required>
+                                <option value="">Select method</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                                <option value="mobile_money">Mobile Money</option>
+                                <option value="cash">Cash</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank-statement">Bank Statement Attachment (PDF/JPG/PNG) *</label>
+                            <div class="file-actions">
+                                <input type="file" id="bank-statement" name="bank_statement" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <button type="button" id="clear-bank-statement" class="btn-secondary">Cancel</button>
+                            </div>
+                            <small><span id="bank-statement-name">No file selected</span> · <span>Max 5MB. We keep your information private.</span></small>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Donation</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <script src="scripts/tabs.js"></script>
+<script src="scripts/tabs.js"></script>
+<script src="scripts/contact.js"></script>
+<script src="scripts/donate.js"></script>
+<script src="scripts/i18n.js"></script>
 </body>
 </html>
 
