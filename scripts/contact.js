@@ -25,11 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Here you can add code to send the data to a server or handle it as needed
-        console.log('Form submitted:', data);
-        const ok = confirm('Thank you for contacting us, ' + data.name + '!\n\nPress OK to close, or Cancel to keep your message.');
+        // Build a review summary and ask for confirmation before sending
+        const summary = [
+            'Please review your message:',
+            '',
+            'Name: ' + (data.name || ''),
+            'Email: ' + (data.email || ''),
+            (data.subject ? 'Subject: ' + data.subject : null),
+            'Message:',
+            (data.message || ''),
+            '',
+            'Send this message?'
+        ].filter(Boolean).join('\n');
+
+        const ok = confirm(summary);
         if (ok) {
+            // Here you can add code to send the data to a server or handle it as needed
+            console.log('Form submitted:', data);
+            alert('Thank you, ' + data.name + '! Your message has been sent.');
             contactForm.reset();
-        }
+        } // else keep the form intact for further edits
     }
 });
