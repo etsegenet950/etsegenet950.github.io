@@ -93,13 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validateImage(file) {
     if (!file) return { ok: true };
-    const maxBytes = 2 * 1024 * 1024; // 2MB
+    const maxBytes = 6 * 1024 * 1024; // 6MB
     const allowed = ['image/jpeg', 'image/png'];
     if (!allowed.includes(file.type)) {
       return { ok: false, msg: 'Invalid image type. Please upload a JPG or PNG.' };
     }
     if (file.size > maxBytes) {
-      return { ok: false, msg: 'Image is too large. Please upload an image smaller than 2MB.' };
+      return { ok: false, msg: 'Image is too large. Please upload an image smaller than 6MB.' };
     }
     return { ok: true };
   }
