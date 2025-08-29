@@ -55,13 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
       card.appendChild(meta);
 
       if (post.imageDataUrl) {
-        const img = document.createElement('img');
-        img.src = post.imageDataUrl;
-        img.alt = post.title || 'News image';
-        img.style.width = '100%';
-        img.style.borderRadius = '8px';
-        img.style.margin = '0.5rem 0 0.75rem';
-        card.appendChild(img);
+        const isVideo = post.imageDataUrl.startsWith('data:video/');
+        
+        if (isVideo) {
+          const video = document.createElement('video');
+          video.src = post.imageDataUrl;
+          video.controls = true;
+          video.style.width = '100%';
+          video.style.borderRadius = '8px';
+          video.style.margin = '0.5rem 0 0.75rem';
+          video.style.maxHeight = '500px';
+          card.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = post.imageDataUrl;
+          img.alt = post.title || 'News image';
+          img.style.width = '100%';
+          img.style.borderRadius = '8px';
+          img.style.margin = '0.5rem 0 0.75rem';
+          img.style.maxHeight = '500px';
+          img.style.objectFit = 'contain';
+          card.appendChild(img);
+        }
       }
 
       card.appendChild(content);
@@ -93,13 +108,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validateImage(file) {
     if (!file) return { ok: true };
-    const maxBytes = 6 * 1024 * 1024; // 6MB
-    const allowed = ['image/jpeg', 'image/png'];
+    const allowed = [
+      'image/jpeg', 'image/png', 'image/gif',
+      'video/mp4', 'video/webm', 'video/quicktime'
+    ];
     if (!allowed.includes(file.type)) {
-      return { ok: false, msg: 'Invalid image type. Please upload a JPG or PNG.' };
-    }
-    if (file.size > maxBytes) {
-      return { ok: false, msg: 'Image is too large. Please upload an image smaller than 6MB.' };
+      return { ok: false, msg: 'Invalid file type. Please upload an image (JPG, PNG, GIF) or video (MP4, WebM, QuickTime).' };
     }
     return { ok: true };
   }
