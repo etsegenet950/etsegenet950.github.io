@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ፋኖስ ለሁሉ የበጎ አድራጎት ድርጅት</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/forms.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -96,6 +97,40 @@
             </div>
         </div>
         
+        <!-- News Tab Content -->
+        <div id="news" class="tab-content">
+            <h2>Latest News & Updates</h2>
+            <div id="admin-news-form" class="admin-form" style="display: none; margin-bottom: 2rem;">
+                <h3>Add News Article</h3>
+                <form id="news-form" class="admin-news-form">
+                    <div class="form-group">
+                        <label for="news-title">Title *</label>
+                        <input type="text" id="news-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-date">Date</label>
+                        <input type="date" id="news-date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="news-image">Image URL</label>
+                        <input type="url" id="news-image" name="image" placeholder="https://example.com/image.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="news-content">Content *</label>
+                        <textarea id="news-content" name="content" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Publish News</span>
+                        <span class="btn-loader" style="display: none;">Publishing...</span>
+                    </button>
+                </form>
+            </div>
+            <div id="news-container" class="content-section">
+                <!-- News articles will be loaded here -->
+                <p>Loading news...</p>
+            </div>
+        </div>
+
         <!-- Services Tab Content -->
         <div id="services" class="tab-content">
             <h2>Our Services</h2>
@@ -121,14 +156,6 @@
             </div>
         </div>
         
-        <!-- News Tab Content -->
-        <div id="news" class="tab-content">
-            <h2>Latest News</h2>
-            <div class="content-section">
-                <p>No news available at the moment. Please check back soon.</p>
-            </div>
-        </div>
-        
         <!-- Contact Tab Content -->
         <div id="contact" class="tab-content">
             <h2>Contact Us</h2>
@@ -146,7 +173,7 @@
                         </div>
                         <div class="contact-item">
                             <strong>Email:</strong>
-                            <p>fanoslehulu@gmail.com</p>
+                            <p>fanoslechulucharityorg@gmail.com</p>
                         </div>
                         <div class="contact-item">
                             <strong>Telegram:</strong>
@@ -162,8 +189,9 @@
                         </div>
                     </div>
                     
-                    <form id="contact-form" class="contact-form">
+                    <form id="contact-form" class="contact-form" onsubmit="return handleContactSubmit(event)">
                         <h3>Send us a Message</h3>
+                        <div id="form-message" class="form-message"></div>
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -180,7 +208,10 @@
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">Sending...</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -188,7 +219,7 @@
         
         <!-- Gallery Tab Content -->
         <div id="gallery" class="tab-content">
-            <h2>Gallery</h2>
+            <h3>Gallery</h2>
             <div class="content-section">
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-25-57.jpg" alt="Gallery photo 1"></div>
@@ -198,20 +229,6 @@
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-17.jpg" alt="Gallery photo 5"></div>
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-25.jpg" alt="Gallery photo 6"></div>
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-36.jpg" alt="Gallery photo 7"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-42.jpg" alt="Gallery photo 8"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-43.jpg" alt="Gallery photo 9"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-48.jpg" alt="Gallery photo 10"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-49.jpg" alt="Gallery photo 11"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-50.jpg" alt="Gallery photo 12"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-51.jpg" alt="Gallery photo 13"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-52.jpg" alt="Gallery photo 14"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-53.jpg" alt="Gallery photo 15"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-55.jpg" alt="Gallery photo 17"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-57.jpg" alt="Gallery photo 18"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-58 (2).jpg" alt="Gallery photo 19"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-26-58.jpg" alt="Gallery photo 20"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-00 (2).jpg" alt="Gallery photo 21"></div>
-                    <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-00.jpg" alt="Gallery photo 22"></div>
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-02.jpg" alt="Gallery photo 23"></div>
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-08.jpg" alt="Gallery photo 24"></div>
                     <div class="gallery-item"><img src="images/photo_2025-08-14_12-27-12.jpg" alt="Gallery photo 25"></div>
@@ -223,57 +240,105 @@
 
         <!-- Donate Tab Content -->
         <div id="donate" class="tab-content">
-            <h2>Support Our Cause</h2>
+            <h2 style="color: black; font-weight: bold;">Join Our Impact</h2>
             <div class="content-section">
                 <div class="about-grid">
                     <div class="about-card">
+                        <h3>Bank Accounts</h3>
+                        <div class="bank-details">
+                            <div class="bank-account">
+                                <h4>Commercial Bank of Ethiopia (CBE)</h4>
+                                <p><strong>Account Name:</strong> FANOS LEHULU CHARITY ORGANIZATION</p>
+                                <p><strong>Account Number:</strong> 1000401924233</p>
+                                <p><strong>Short Code:</strong> 0121</p>
+                                <p><strong>Branch:</strong> [Branch Name]</p>
+                            </div>
+                            
+                            <div class="bank-account">
+                                <h4>Amhara Bank</h4>
+                                <p><strong>Account Name:</strong> FANOS LEHULU CHARITY ORGANIZATION</p>
+                                <p><strong>Account Number:</strong> 9900002135683</p>
+                                <p><strong>Branch:</strong> [Branch Name]</p>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="donation-instructions">
+                            <h4>Donation Instructions:</h4>
+                            <ol>
+                                <li>Make your donation through any of the provided bank accounts or mobile payment options</li>
+                                <li>After making the payment, please fill out the donation form</li>
+                                <li>Upload a copy of your payment receipt (optional but appreciated)</li>
+                                <li>You will receive a confirmation email with your donation details</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card">
                         <h3>Make a Donation</h3>
                         <p>Your generous donations help us continue our mission of improving lives in vulnerable communities. Every contribution makes a difference in education, health services, environmental protection, and special care programs.</p>
+                        
+                        <!-- Donation Form -->
+                        <div class="donation-form">
+                            <h4>Donation Information</h4>
+                            <form id="donation-form">
+                                <div class="form-group">
+                                    <label for="donor-name">Full Name *</label>
+                                    <input type="text" id="donor-name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donor-email">Email *</label>
+                                    <input type="email" id="donor-email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donation-amount">Amount (ETB) *</label>
+                                    <input type="number" id="donation-amount" name="amount" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donation-method">Payment Method *</label>
+                                    <select id="donation-method" name="payment-method" required>
+                                        <option value="">Select payment method</option>
+                                        <option value="cbe">Commercial Bank of Ethiopia</option>
+                                        <option value="amhara">Amhara Bank</option>
+                                        <option value="telebirr">Telebirr</option>
+                                        <option value="cbe-birr">CBE Birr</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donation-purpose">Purpose of Donation</label>
+                                    <select id="donation-purpose" name="purpose">
+                                        <option value="general">General Donation</option>
+                                        <option value="education">Education Support</option>
+                                        <option value="health">Health Services</option>
+                                        <option value="environment">Environmental Programs</option>
+                                        <option value="special-care">Special Care Programs</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donation-statement">Upload Payment Statement (Optional)</label>
+                                    <input type="file" id="donation-statement" name="statement" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="form-hint">You can upload a screenshot or scan of your payment receipt</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donation-message">Message (Optional)</label>
+                                    <textarea id="donation-message" name="message" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="donate-btn">Submit Donation</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="about-card">
-                        <h3>Bank Accounts</h3>
-                        <p><strong>Account Name:</strong> FANOS LEHULU CHARITY ORGANIZATION</p>
-                        <p><strong>Commercial Bank of Ethiopia (CBE):</strong> <strong>1000401924233</strong> <em>or</em> Short Code: <strong>0121</strong></p>
-                        <p><strong>Amhara Bank:</strong> 9900002135683</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
-
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/contact-form.css">
+    <link rel="stylesheet" href="styles/news.css">
     <script src="scripts/tabs.js"></script>
+    <script src="scripts/forms.js"></script>
+    <script src="scripts/contact-form.js"></script>
+    <script src="scripts/news-fixed.js"></script>
+    <!-- 
+    <script src="scripts/tabs.js"></script>
+    <script src="src/scripts/contact.js"></script>
+    -->
 </body>
 </html>
-
-<!-- // This file contains JavaScript code specific to the contact page.
-// It includes functions for handling form submissions and user interactions on the contact section.
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            handleFormSubmit();
-        });
-    }
-
-    function handleFormSubmit() {
-        const formData = new FormData(contactForm);
-        const data = {};
-
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        // Basic validation
-        if (!data.name || !data.email || !data.message) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-
-        // Here you can add code to send the data to a server or handle it as needed
-        console.log('Form submitted:', data);
-        alert('Thank you for contacting us, ' + data.name + '! We will get back to you soon.');
-    }
-}); -->
