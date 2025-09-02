@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Ensure form elements inherit the font */
+input, textarea, select, button {
+    font-family: inherit;
 }
 
 /* About Us section styling */

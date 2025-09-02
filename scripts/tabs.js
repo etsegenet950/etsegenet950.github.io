@@ -1,11 +1,15 @@
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Get all tab buttons and contents
     var tabButtons = document.querySelectorAll('.tab-button');
     var tabContents = document.querySelectorAll('.tab-content');
     var howWeHelpSection = document.querySelector('.quick-nav-section');
-    var howWeHelpTitle = null;
-    if (howWeHelpSection) {
-        howWeHelpTitle = howWeHelpSection.querySelector('h2');
+    var howWeHelpTitle = howWeHelpSection ? howWeHelpSection.querySelector('h2') : null;
+    
+    // Show the first tab by default if no tab is active
+    if (!document.querySelector('.tab-content.active')) {
+        tabContents[0].classList.add('active');
+        tabButtons[0].classList.add('active');
     }
 
     // Function to show a specific tab
@@ -45,8 +49,29 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('touchstart', activateTab);
     });
 
-    // Initialize with the first tab active (About Us)
-    showTab('about');
+    // Initialize with the home tab active
+    showTab('home');
+    
+    // Ensure all tabs are properly initialized
+    function initializeTabs() {
+        // Show home tab by default
+        document.getElementById('home').classList.add('active');
+        
+        // Add click handlers for all tabs
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                showTab(targetTab);
+            });
+        });
+    }
+    
+    // Initialize tabs when DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeTabs);
+    } else {
+        initializeTabs();
+    }
 
     // Toggle How We Help grid when its title is clicked
     if (howWeHelpTitle && howWeHelpSection) {

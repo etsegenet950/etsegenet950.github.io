@@ -1,30 +1,30 @@
 // News Management Script for Fanos Lehulu Charity Organization
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Initializing news functionality...');
-  
-  // DOM Elements
-  const newsForm = document.getElementById('news-form');
-  const newsContainer = document.getElementById('news-container');
-  const adminNewsForm = document.getElementById('admin-news-form');
-  const LS_KEY = 'fanos_lehulu_news';
-  
-  // Check if required elements exist
-  if (!newsContainer) {
-    console.error('News container element not found');
-    return;
-  }
-  
-  // Check if admin mode is enabled
-  const urlParams = new URLSearchParams(window.location.search);
-  const isAdmin = urlParams.get('admin') === 'true';
-  
-  // Initialize the news functionality
-  initNews();
-  
-  function initNews() {
+// Prevent multiple initializations
+if (!window.newsInitialized) {
+  document.addEventListener('DOMContentLoaded', function() {
     console.log('Initializing news functionality...');
     
+    // DOM Elements
+    const newsForm = document.getElementById('news-form');
+    const newsContainer = document.getElementById('news-container');
+    const adminNewsForm = document.getElementById('admin-news-form');
+    const LS_KEY = 'fanos_lehulu_news';
+    
+    // Check if required elements exist
+    if (!newsContainer) {
+      console.error('News container element not found');
+      return;
+    }
+    
+    // Check if admin mode is enabled
+    const urlParams = new URLSearchParams(window.location.search);
+    const isAdmin = urlParams.get('admin') === 'true';
+    
+    // Initialize the news functionality
+    initNews();
+    
+    function initNews() {
     // Set up admin form if in admin mode
     if (isAdmin && adminNewsForm) {
       adminNewsForm.style.display = 'block';
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setDefaultDate();
       }
     }
+    
+    // Mark as initialized
+    window.newsInitialized = true;
     
     // Initial render of news
     renderNews();
@@ -159,4 +162,20 @@ document.addEventListener('DOMContentLoaded', function() {
       dateInput.value = new Date().toISOString().split('T')[0];
     }
   }
-});
+  
+  // Initialize the news functionality
+  initNews();
+  
+  // Mark as initialized
+  window.newsInitialized = true;
+  
+  // Initial render of news
+  renderNews();
+  
+  // Expose necessary functions to window if needed
+  window.loadNews = loadNews;
+  window.saveNews = saveNews;
+  window.renderNews = renderNews;
+  
+  }); // End of DOMContentLoaded
+} // End of if (!window.newsInitialized)

@@ -1,11 +1,23 @@
 /* Contact Form Styling */
-.contact-form {
-    max-width: 100%;
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    flex-basis: 0; /* Makes columns equal width */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
 }
 
 /* Form Messages */
