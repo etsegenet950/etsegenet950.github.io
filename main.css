@@ -533,7 +533,7 @@ header h1 {
     border: none;
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: bold;
     color: #666;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -561,16 +561,18 @@ header h1 {
 
 .tab-content {
     display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
 }
 
 .tab-content.active {
     display: block;
+    opacity: 1;
 }
 
 @keyframes fadeIn {

@@ -41,6 +41,16 @@ if (!window.newsInitialized) {
     
     // Initial render of news
     renderNews();
+
+    // Setup delete listener for admin
+    if (isAdmin) {
+      newsContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('delete-news-btn')) {
+          const articleId = parseInt(e.target.getAttribute('data-id'));
+          deleteNews(articleId);
+        }
+      });
+    }
   }
   
   // Load news from local storage
@@ -91,8 +101,13 @@ if (!window.newsInitialized) {
         `<img src="${article.image}" alt="${article.title}" class="news-image" onerror="this.style.display='none';">` : 
         '';
       
+      const adminControls = isAdmin ? 
+        `<button class="delete-news-btn" data-id="${article.id}" title="Delete Article">&times;</button>` : 
+        '';
+
       html += `
         <div class="news-card">
+          ${adminControls}
           ${image}
           <div class="news-content">
             <h3>${article.title || 'Untitled Article'}</h3>
@@ -105,6 +120,21 @@ if (!window.newsInitialized) {
     
     html += '</div>';
     newsContainer.innerHTML = html;
+  }
+
+  // Delete a news article
+  function deleteNews(id) {
+    if (!confirm('Are you sure you want to delete this news article?')) {
+      return;
+    }
+    let news = loadNews();
+    news = news.filter(article => article.id !== id);
+    if (saveNews(news)) {
+      renderNews();
+      alert('Article deleted successfully.');
+    } else {
+      alert('Failed to delete article.');
+    }
   }
   
   // Set up form event listeners

@@ -8,6 +8,7 @@
 
 /* News Card Styles */
 .news-card {
+    position: relative;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -65,6 +66,31 @@
     border-bottom: 2px solid #0d47a1;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
+}
+
+/* Delete Button for Admin */
+.delete-news-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    z-index: 10;
+}
+
+.delete-news-btn:hover {
+    background: #c0392b;
+    opacity: 1;
 }
 
 /* Responsive Design */
