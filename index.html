@@ -339,7 +339,11 @@
             <h2>Become a Fanos Member</h2>
             <div class="content-section">
                 <div class="form-container">
-                    <form id="membership-form" class="membership-form" onsubmit="return handleFormSubmit(event)">
+                    <form id="membership-form" class="membership-form" action="https://formsubmit.co/fanoslehulucharityorg@gmail.com" method="POST" onsubmit="return handleFormSubmit(event)">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="New Membership Application">
+                        <input type="hidden" name="_next" value="https://etsegenet950.github.io/thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="form-group">
                             <label for="full-name">Full Name *</label>
                             <input type="text" id="full-name" name="fullName" required>
