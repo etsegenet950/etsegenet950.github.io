@@ -816,6 +816,36 @@ footer {
     margin-top: 2rem;
 }
 
+/* Clickable phone and email links */
+.phone-link,
+.email-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover,
+.email-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
+/* Make links more touch-friendly on mobile */
+@media (max-width: 768px) {
+    .phone-link,
+    .email-link {
+        display: inline-block;
+        padding: 4px 8px;
+        margin: -4px -8px;
+        border-radius: 4px;
+    }
+    
+    .phone-link:active,
+    .email-link:active {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .tab-navigation {
